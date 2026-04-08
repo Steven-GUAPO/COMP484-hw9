@@ -1,0 +1,231 @@
+
+/* ── CSS Variables ── */
+:root {
+  --bg:        #0d0f14;
+  --surface:   #14181f;
+  --border:    #1f2530;
+  --accent:    #f5c842;
+  --accent2:   #4af0c4;
+  --text:      #e8eaf0;
+  --muted:     #7a8299;
+  --code-bg:   #1a1f2b;
+  --radius:    10px;
+  --mono:      'Space Mono', monospace;
+  --sans:      'Syne', sans-serif;
+}
+
+/* ── Reset & Base ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.65;
+  min-height: 100vh;
+  padding-bottom: 4rem;
+}
+
+/* ── Typography helpers ── */
+h1, h2 { line-height: 1.1; }
+
+code {
+  font-family: var(--mono);
+  font-size: 0.82em;
+  background: var(--code-bg);
+  color: var(--accent2);
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+}
+
+hr { border: none; border-top: 1px solid var(--border); margin: 1rem 0; }
+
+/* ── Header ── */
+header {
+  position: relative;
+  overflow: hidden;
+  padding: 4rem 2rem 3.5rem;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.header-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.header-tag {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  padding: 0.2em 0.7em;
+  border-radius: 3px;
+  margin-bottom: 1.25rem;
+}
+
+header h1 {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: clamp(2.6rem, 6vw, 4.5rem);
+  color: var(--text);
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+}
+
+header h1 em {
+  font-style: normal;
+  color: var(--accent);
+}
+
+.header-sub {
+  max-width: 520px;
+  color: var(--muted);
+  font-size: 1rem;
+  font-family: var(--mono);
+  line-height: 1.7;
+}
+
+/* Large decorative background text */
+.header-deco {
+  position: absolute;
+  top: 50%;
+  right: -0.1em;
+  transform: translateY(-50%);
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: clamp(7rem, 18vw, 13rem);
+  color: rgba(245, 200, 66, 0.05);
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+/* ── Main Grid ── */
+main {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  gap: 1.5rem;
+}
+
+/* ── Cards ── */
+.card {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem 2rem 2rem 3.5rem;
+  transition: border-color 0.2s;
+}
+
+.card:hover {
+  border-color: rgba(245, 200, 66, 0.3);
+}
+
+/* Numbered label in the left gutter */
+.card-label {
+  position: absolute;
+  top: 1.9rem;
+  left: 1.1rem;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.05em;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+.card h2 {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: 1.35rem;
+  color: var(--text);
+  letter-spacing: -0.01em;
+  margin-bottom: 0.4rem;
+}
+
+.card-desc {
+  font-size: 0.875rem;
+  color: var(--muted);
+  margin-bottom: 1.25rem;
+  font-family: var(--mono);
+  line-height: 1.6;
+}
+
+/* ── Output Boxes ── */
+.output-box {
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: 6px;
+  padding: 1.1rem 1.25rem;
+  font-family: var(--mono);
+  font-size: 0.83rem;
+  line-height: 1.85;
+  color: #c8d0e0;
+  word-break: break-word;
+}
+
+/* Each <p> inside the output box gets a subtle separator */
+.output-box p {
+  padding: 0.3rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.output-box p:last-child {
+  border-bottom: none;
+}
+
+/* Highlighted values */
+.output-box strong {
+  color: var(--accent2);
+  font-weight: 700;
+}
+
+/* ── Footer ── */
+footer {
+  max-width: 860px;
+  margin: 3rem auto 0;
+  padding: 0 2rem;
+  text-align: center;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ── Section-specific accent colors ── */
+#section-conversion .output-box { border-left-color: var(--accent2); }
+#section-math       .output-box { border-left-color: #f07bff; }
+#section-conditionals .output-box { border-left-color: #ff7b7b; }
+
+/* ── Fade-in animation on load ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+header           { animation: fadeUp 0.55s ease both; }
+.card:nth-child(1) { animation: fadeUp 0.55s 0.1s ease both; }
+.card:nth-child(2) { animation: fadeUp 0.55s 0.2s ease both; }
+.card:nth-child(3) { animation: fadeUp 0.55s 0.3s ease both; }
+.card:nth-child(4) { animation: fadeUp 0.55s 0.4s ease both; }
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  header { padding: 2.5rem 1.25rem 2rem; }
+  main   { padding: 0 1.25rem; }
+  .card  { padding: 1.5rem 1.25rem 1.5rem 2.75rem; }
+  .header-deco { display: none; }
+}

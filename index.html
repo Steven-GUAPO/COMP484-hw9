@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript Mini Demo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="header-inner">
+        <span class="header-tag">COMP 484</span>
+        <h1>JavaScript<br /><em>Mini Demo</em></h1>
+        <p class="header-sub">
+          A live demonstration of the Date object, Number conversions, math
+          formatting, and conditional logic.
+        </p>
+      </div>
+      <div class="header-deco" aria-hidden="true">JS</div>
+    </header>
+
+    <main>
+      <!--  SECTION 1: DATE  -->
+      <section class="card" id="section-date">
+        <div class="card-label">01</div>
+        <h2>Date Display</h2>
+        <p class="card-desc">
+          Using the <code>Date</code> object to retrieve and format today's
+          date.
+        </p>
+        <div class="output-box" id="dateOutput">Loading date…</div>
+      </section>
+
+      <!--  SECTION 2: NUMBER CONVERSION  -->
+      <section class="card" id="section-conversion">
+        <div class="card-label">02</div>
+        <h2>Number Conversion Tests</h2>
+        <p class="card-desc">
+          Converting string values with <code>Number()</code>, then checking
+          with <code>Number.isNaN()</code> and
+          <code>Number.isInteger()</code>.
+        </p>
+        <div class="output-box" id="numberConversionOutput">
+          Loading results…
+        </div>
+      </section>
+
+      <!--  SECTION 3: MATH & FORMATTING  -->
+      <section class="card" id="section-math">
+        <div class="card-label">03</div>
+        <h2>Math &amp; Number Formatting</h2>
+        <p class="card-desc">
+          Performing arithmetic on numeric values and formatting results with
+          <code>toFixed()</code> and <code>toLocaleString()</code>.
+        </p>
+        <div class="output-box" id="mathOutput">Loading results…</div>
+      </section>
+
+      <!-- ============= SECTION 4: CONDITIONALS ==================== -->
+      <section class="card" id="section-conditionals">
+        <div class="card-label">04</div>
+        <h2>Conditional Messages</h2>
+        <p class="card-desc">
+          Using <code>if/else</code> statements to display dynamic messages
+          based on evaluated conditions.
+        </p>
+        <div class="output-box" id="conditionalOutput">Loading…</div>
+      </section>
+    </main>
+
+    <!-- External JavaScript — placed at end of body so DOM is ready -->
+    <script src="script.js"></script>
+  </body>
+</html>
